@@ -1,0 +1,14 @@
+{{#operations}}
+{{#operation}}
+export interface {{operationId}}Parameters {
+{{#pathParams}}
+    {{paramName}}{{^required}}?{{/required}}: {{{dataType}}}
+{{/pathParams}}
+{{#queryParams}}
+    {{#secondaryParam}}
+    {{paramName}}{{^required}}?{{/required}}: {{{dataType}}}
+    {{/secondaryParam}}
+{{/queryParams}}
+}
+{{/operation}}
+{{/operations}}

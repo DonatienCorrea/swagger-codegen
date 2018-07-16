@@ -1,0 +1,22 @@
+import * as Resources from '../Resources/resources'; 
+{{#operations}}
+import * as Parameters from './{{classname}}Parameters';
+{{/operations}}
+
+declare namespace client {
+{{#operations}}
+
+{{#description}}
+/**
+ * {{&description}}
+ */
+{{/description}}
+	namespace {{classname}} {
+		export const {{classVarName}}: {
+        {{#operation}}
+			{{nickname}}(params: Parameters.{{operationId}}Parameters): ThenableExecutable<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}{}{{/returnType}}>
+        {{/operation}}
+		};
+	}
+{{/operations}}
+}
